@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listadoCompletoDeArticulos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="42" bottomMargin="20" uuid="131a9e23-5d28-4a0e-9856-39fff4d67f55">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM articulos]]>
+	</queryString>
+	<field name="art_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_codigo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_marca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_precio_compra" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_porc_util" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_precio_venta" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_rubro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_proveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_detalle" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_estado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="34" y="0" width="732" height="32" uuid="3c4cd895-136d-45bc-ac5f-a2bb0a2a7d00"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="27" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MAXIKIOSCO ZONA SUR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="32" width="732" height="25" uuid="cb9ac9f3-9061-4b3f-809f-c9fc16cd3840"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Avda. Belgrano (S) N° 1901 - Abierto las 24 hs.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="34" y="57" width="732" height="1" forecolor="#999999" uuid="5ca3857e-497b-4944-afab-f81e95a54b48"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="34" y="16" width="439" height="25" uuid="6ab8fbbe-1f2b-44e1-bfca-a5795a94675b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Centaur" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTADO COMPLETO DE ARTICULOS A LA FECHA:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="484" y="16" width="282" height="25" uuid="690ce77c-5d67-49ff-a99c-7ab111ba5ad4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Centaur" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="35" y="17" width="74" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="7a460169-8fb0-4900-a3ff-db7baf1cac60"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CÓDIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="109" y="17" width="148" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="2591e693-ee5d-4c63-a6b6-8f97c99ade80"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="257" y="17" width="92" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="6078bb06-4226-4912-ac21-6a3e2ae5b1f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="349" y="17" width="72" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="d6408a12-3233-4784-96de-cb3429b81728"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[$ COMPRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="652" y="17" width="114" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="7ab2b678-a5ee-442c-bbde-54d4b63fe370"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="567" y="17" width="85" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="cbbe421d-8987-44b0-9db7-38421dc5b229"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[RUBRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="494" y="17" width="73" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="62ac0c5b-1dd8-4c24-bc73-cb056934964f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[$ VENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="421" y="17" width="73" height="18" forecolor="#000000" backcolor="#CCCCCC" uuid="c0f32453-4e0a-457c-b6c0-39c8eedcf13a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[MG. UTIL.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="35" y="3" width="74" height="16" uuid="1a9811b5-8c21-455f-9cfe-d41c5b7f48c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_codigo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="109" y="3" width="148" height="16" uuid="b24b9260-ab4f-4f3d-ae51-2d6c9978b40b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="3" width="92" height="16" uuid="50c279c7-c272-4e78-a75a-fff14a8a5c57"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_marca}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="349" y="3" width="72" height="16" uuid="5948d77a-3844-497d-bb2e-e8a95dfff887"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_precio_compra}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="652" y="3" width="114" height="16" uuid="7089e52b-1b35-42c2-88e9-b616c290acb9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="567" y="3" width="85" height="16" uuid="e45f6ba7-266f-4a96-902a-e00fa1b68666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_rubro}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="494" y="3" width="73" height="16" uuid="1035cb13-0c26-49a3-a89e-fcacea2f7e9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_precio_venta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="422" y="3" width="72" height="16" uuid="613bad69-e45b-4131-9628-bf3821468b67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_porc_util}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="42" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

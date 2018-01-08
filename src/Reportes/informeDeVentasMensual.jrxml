@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informeArticulosPorVenta" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23481596-5091-4f86-ac39-d4f1d97caac9">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT * FROM ventas]]>
+	</queryString>
+	<field name="ven_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_hora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_monto" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_formaPago" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_tipoTarjeta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_turno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_usuario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_caja" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ven_estado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="TOTAL" class="java.lang.Float" resetType="Group" resetGroup="id" calculation="Sum">
+		<variableExpression><![CDATA[$F{ven_monto}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+	</variable>
+	<group name="id">
+		<groupExpression><![CDATA[$F{ven_fecha}.substring( 1, 3 ) &&
+$F{ven_fecha}.substring( 6, 10 )]]></groupExpression>
+		<groupHeader>
+			<band height="49">
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="242" y="34" width="86" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="63906222-831e-42cd-806b-f13f6fdb8ed0"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[HORA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="156" y="34" width="86" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="e2c25645-bc95-458b-93a5-7ad7fed09f90"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[FECHA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="77" y="34" width="79" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="a8fcdd7e-cff6-48d5-a65b-b7d8cccd60c0"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[MONTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="20" y="34" width="57" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="454bb2ba-562a-445f-8219-4a525881fc33"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[ID VENTA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="433" y="34" width="106" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="57506568-ff2f-42d2-9878-08da293a2a43"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[VENDEDOR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="328" y="34" width="106" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="dfae8c9d-a778-4066-b9b7-26412623bdd4"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[CAJA N°]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="144" y="5" width="34" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="57930cc8-63c9-4540-9a48-6dd35969962c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[MES:]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="185" y="5" width="82" height="15" uuid="fff215a0-4d93-4443-b295-3d06c842427d"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{ven_fecha}.substring( 3, 5 ).equals("01")?"ENERO":
+$F{ven_fecha}.substring( 3, 5 ).equals("02")?"FEBRERO":
+$F{ven_fecha}.substring( 3, 5 ).equals("03")?"MARZO":
+$F{ven_fecha}.substring( 3, 5 ).equals("04")?"ABRIL":
+$F{ven_fecha}.substring( 3, 5 ).equals("05")?"MAYO":
+$F{ven_fecha}.substring( 3, 5 ).equals("06")?"JUNIO":
+$F{ven_fecha}.substring( 3, 5 ).equals("07")?"JULIO":
+$F{ven_fecha}.substring( 3, 5 ).equals("08")?"AGOSTO":
+$F{ven_fecha}.substring( 3, 5 ).equals("09")?"SEPTIEMBRE":
+$F{ven_fecha}.substring( 3, 5 ).equals("10")?"OCTUBRE":
+$F{ven_fecha}.substring( 3, 5 ).equals("11")?"NOVIEMBRE":
+$F{ven_fecha}.substring( 3, 5 ).equals("12")?"DICIEMBRE":""]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="25" y="5" width="34" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="7413f6e0-1bd1-45f7-8e66-339c08f92ef6"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[AÑO:]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="65" y="5" width="70" height="15" uuid="e673c7ed-27ac-49c4-9a2b-efeb0eda5df5"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{ven_fecha}.substring( 6, 10 )]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="4"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="0" y="54" width="553" height="32" forecolor="#000000" uuid="35c2d77c-682f-4419-8d23-a0f5f1303bee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE VENTAS MENSUAL]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="92" y="53" width="376" height="1" uuid="072135fa-2a50-4e8e-b93b-65a922002da7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Title" x="0" y="18" width="555" height="35" uuid="8a0356b2-b0f0-4ecb-88d3-6436c62a065b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="27"/>
+				</textElement>
+				<text><![CDATA[MAXIKIOSCO ZONA SUR]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="156" y="3" width="89" height="15" uuid="1a028a63-6954-49b1-a584-885840c4df87"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{ven_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="245" y="3" width="83" height="15" uuid="b617a1b2-6826-4770-9c6e-aae72ef6009e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{ven_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="77" y="3" width="79" height="15" uuid="04106f1e-f7f4-4318-bfe6-986ab558830d"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{ven_monto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="433" y="3" width="106" height="15" uuid="f0ec37b1-7ff3-4c27-aece-d52f860a98d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{ven_usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="20" y="3" width="57" height="15" uuid="a39b7e37-5148-472e-97c1-24b290cb7a6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{ven_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="328" y="3" width="106" height="15" uuid="3c6d57fb-e406-4a63-a2af-6f7abd2d79cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{ven_caja}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="c2ecdfda-39de-47ca-9600-d36ec455bd35"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="363" y="18" width="71" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="4269659d-f63d-4d8a-a4ef-423a8cb98b06"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="446" y="18" width="93" height="15" uuid="fb9d9256-5021-4a5a-9a5c-1930e592681b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Math.floor(($V{TOTAL}) * 100) / 100]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="987e31bf-5eb6-4e0a-ac8f-f2bff7177720"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="9c26267f-74fd-4f31-95e0-aa7296726388"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="ac62f3fe-7877-4d32-9ff8-cb362cd49c14"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

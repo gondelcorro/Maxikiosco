@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historialDeReposiciones" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23481596-5091-4f86-ac39-d4f1d97caac9">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT * FROM stock INNER JOIN articulos ON stock.sto_codigo_art=articulos.art_codigo ORDER BY stock.sto_codigo_art]]>
+	</queryString>
+	<field name="sto_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sto_codigo_art" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sto_cantActual" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sto_cantRecarga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sto_fechaRecarga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sto_cantVendida" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sto_estado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_codigo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_marca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_precio_compra" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_precio_venta" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_rubro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_proveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_detalle" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="art_estado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="79" width="553" height="25" uuid="7e3941f1-7031-450e-8269-6117dcb841dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HISTORIAL DE REPOSICIONES]]></text>
+			</staticText>
+			<line>
+				<reportElement x="54" y="67" width="459" height="1" forecolor="#999999" uuid="51b06100-a9ae-4f51-9757-bb0971a82f3c"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="42" width="553" height="25" uuid="758266e2-7281-40ec-8ad4-1a7808ee0738"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Avda. Belgrano (S) N° 1901 - Abierto las 24 hs.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="10" width="553" height="32" uuid="6a7b2bc2-3553-4582-a277-1fc5e19789ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="27" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MAXIKIOSCO ZONA SUR]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="427" y="9" width="57" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="63906222-831e-42cd-806b-f13f6fdb8ed0"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="366" y="9" width="61" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="e2c25645-bc95-458b-93a5-7ad7fed09f90"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[RECARGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="218" y="9" width="97" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="a8fcdd7e-cff6-48d5-a65b-b7d8cccd60c0"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="62" y="9" width="156" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="dfae8c9d-a778-4066-b9b7-26412623bdd4"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="12" y="9" width="50" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="454bb2ba-562a-445f-8219-4a525881fc33"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="315" y="9" width="51" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="57506568-ff2f-42d2-9878-08da293a2a43"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[STOCK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="484" y="9" width="58" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="19111447-c10f-402d-9be0-2f5d19c79dc0"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[VENTA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="366" y="3" width="61" height="15" uuid="1a028a63-6954-49b1-a584-885840c4df87"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sto_cantRecarga}==null?"-":$F{sto_cantRecarga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="427" y="3" width="57" height="15" uuid="b617a1b2-6826-4770-9c6e-aae72ef6009e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sto_fechaRecarga}==null?"-":
+$F{sto_fechaRecarga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="218" y="3" width="97" height="15" uuid="04106f1e-f7f4-4318-bfe6-986ab558830d"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_marca}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="62" y="3" width="156" height="15" uuid="3c6d57fb-e406-4a63-a2af-6f7abd2d79cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="315" y="3" width="51" height="15" uuid="f0ec37b1-7ff3-4c27-aece-d52f860a98d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sto_cantActual}==null?"-":$F{sto_cantActual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="12" y="3" width="50" height="15" uuid="a39b7e37-5148-472e-97c1-24b290cb7a6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="484" y="3" width="58" height="15" uuid="1a0c32f4-6c5e-4e4c-ad06-ed8b1a4c7f37"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sto_cantVendida}==null?"-":
+$F{sto_cantVendida}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="c2ecdfda-39de-47ca-9600-d36ec455bd35"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="987e31bf-5eb6-4e0a-ac8f-f2bff7177720"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="9c26267f-74fd-4f31-95e0-aa7296726388"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="ac62f3fe-7877-4d32-9ff8-cb362cd49c14"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

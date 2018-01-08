@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informePlanillaDiaria" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23481596-5091-4f86-ac39-d4f1d97caac9">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT * FROM caja]]>
+	</queryString>
+	<field name="caj_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_hora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_turno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_encargado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_Inicial" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_Ingresos" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_Egresos" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_final" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_hay" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="caj_estado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="TOTAL" class="java.lang.Float" resetType="Group" resetGroup="caja" calculation="Sum">
+		<variableExpression><![CDATA[$F{caj_final}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+	</variable>
+	<group name="caja">
+		<groupExpression><![CDATA[$F{caj_fecha}.substring( 1, 3 ) &&
+$F{caj_fecha}.substring( 6, 10 )]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="159" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="47" y="70" width="677" height="22" forecolor="#000000" uuid="35c2d77c-682f-4419-8d23-a0f5f1303bee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE ESTADISTICAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="47" y="13" width="677" height="36" uuid="b758bed1-4ee9-42b5-a52c-0b77208e9c81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Centaur" size="24"/>
+				</textElement>
+				<text><![CDATA[MAXIKIOSCO ZONA SUR]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="140" y="49" width="514" height="1" uuid="072135fa-2a50-4e8e-b93b-65a922002da7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="214" y="144" width="108" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="a0b79089-d4fa-421c-ae3a-2d489ccd9194"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[ENCARGADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="125" y="144" width="89" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="d940f36b-bd64-48c8-9797-651918d8b27f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="322" y="144" width="81" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="fb1623ec-a89e-4aae-a419-b80c68edc7cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[CAJA INICIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="654" y="144" width="70" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="4de8650a-aff8-4c11-8aa3-e59f75af57b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[HAY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="55" y="144" width="70" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="90ccd035-6047-43b9-a5ad-3c4713fd61a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[CAJA N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="403" y="144" width="81" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="66a26184-4aab-4272-9ddc-85e39804e5cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[INGRESOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="488" y="144" width="81" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="c3da54ad-a650-4f48-83e9-342b299253d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[EGRESOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="569" y="144" width="85" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="64603a94-e597-453f-97bc-a6df5b6ae8f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[CAJA FINAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="94" y="109" width="70" height="15" uuid="5d4db299-53e0-473f-b498-7daffb8ea4c1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{caj_fecha}.substring( 6, 10 )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="173" y="109" width="34" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="7e1d04d3-6c0f-456b-915d-4cc6c99279a9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MES:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="214" y="109" width="82" height="15" uuid="ea8ce615-cd28-4892-a8ff-d3141d5c7eae"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{caj_fecha}.substring( 3, 5 ).equals("01")?"ENERO":
+$F{caj_fecha}.substring( 3, 5 ).equals("02")?"FEBRERO":
+$F{caj_fecha}.substring( 3, 5 ).equals("03")?"MARZO":
+$F{caj_fecha}.substring( 3, 5 ).equals("04")?"ABRIL":
+$F{caj_fecha}.substring( 3, 5 ).equals("05")?"MAYO":
+$F{caj_fecha}.substring( 3, 5 ).equals("06")?"JUNIO":
+$F{caj_fecha}.substring( 3, 5 ).equals("07")?"JULIO":
+$F{caj_fecha}.substring( 3, 5 ).equals("08")?"AGOSTO":
+$F{caj_fecha}.substring( 3, 5 ).equals("09")?"SEPTIEMBRE":
+$F{caj_fecha}.substring( 3, 5 ).equals("10")?"OCTUBRE":
+$F{caj_fecha}.substring( 3, 5 ).equals("11")?"NOVIEMBRE":
+$F{caj_fecha}.substring( 3, 5 ).equals("12")?"DICIEMBRE":""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="54" y="109" width="34" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="dd5bd114-282b-42dc-a681-f7491fa8de19"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AÑO:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="654" y="0" width="70" height="15" uuid="1241052e-7de6-4be0-82ed-987ec167fb44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_hay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="322" y="0" width="81" height="15" uuid="b73d2f74-7b14-47b3-a797-1da60aa3782c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_Inicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="55" y="0" width="70" height="15" uuid="6cb72c70-2014-49e4-83c3-7a2dda3add44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="214" y="0" width="108" height="15" uuid="e4d7f47a-78f0-46cf-a4e0-a2aa2353859e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_encargado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="125" y="0" width="89" height="15" uuid="39f800d0-2f49-42fd-8c48-4d355f691918"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="403" y="0" width="81" height="15" uuid="5d58f98e-a538-4a71-b4e8-10ca81b2fee5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_Ingresos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="488" y="0" width="81" height="15" uuid="99385836-8924-4b3e-b574-d5307cb55dae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_Inicial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="569" y="0" width="85" height="15" uuid="fc89402b-244b-4c01-99eb-b5c5600ba8be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caj_final}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="428" y="23" width="177" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="a8fcdd7e-cff6-48d5-a65b-b7d8cccd60c0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[TOTAL DE CAJA FINAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="615" y="23" width="109" height="25" uuid="04106f1e-f7f4-4318-bfe6-986ab558830d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="12" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
